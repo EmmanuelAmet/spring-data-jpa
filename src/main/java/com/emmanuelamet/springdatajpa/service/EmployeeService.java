@@ -29,4 +29,7 @@ public class EmployeeService {
         return employeeRepository.deleteByEmpId(empId);
     }
 
+    public Employee getEmployeeByName(String name) {
+        return employeeRepository.findTopByNameOrderBySalaryDesc(name);
+    }
 }
