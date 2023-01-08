@@ -16,4 +16,12 @@ public class EmployeeService {
     public List<Employee> createEmployeeData(List<Employee> employeeList) {
         return employeeRepository.saveAll(employeeList);
     }
+
+    public List<Employee> getEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    public Employee getEmployee(Long empId){
+        return employeeRepository.findByEmpId(empId);
+    }
 }

@@ -18,5 +18,13 @@ public class EmployeeController {
         return employeeService.createEmployeeData(employeeList);
     }
 
+    @GetMapping
+    public List<Employee> getEmployees(){
+        return employeeService.getEmployees();
+    }
 
+    @GetMapping("/{empId}")
+    public Employee getEmployee(@PathVariable Long empId){
+        return employeeService.getEmployee(empId);
+    }
 }
