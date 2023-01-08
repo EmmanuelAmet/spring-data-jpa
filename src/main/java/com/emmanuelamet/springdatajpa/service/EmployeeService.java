@@ -24,4 +24,9 @@ public class EmployeeService {
     public Employee getEmployee(Long empId){
         return employeeRepository.findByEmpId(empId);
     }
+
+    public Employee deleteEmployee(Long empId) {
+        return employeeRepository.deleteByEmpId(empId);
+    }
+
 }
