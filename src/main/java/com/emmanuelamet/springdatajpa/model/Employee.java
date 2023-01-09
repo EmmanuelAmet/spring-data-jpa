@@ -3,6 +3,7 @@ package com.emmanuelamet.springdatajpa.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Data

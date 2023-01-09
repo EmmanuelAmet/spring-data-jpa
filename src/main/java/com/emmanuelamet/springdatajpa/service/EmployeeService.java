@@ -48,4 +48,12 @@ public class EmployeeService {
         //Pageable pageable2 = PageRequest.of(pageNumber, pageSize, sort);
         return employeeRepository.findAll(pageable);
     }
+
+    public List<Employee> findEmployeeByDesignationData(Boolean activeState, List<String> designationList) {
+        return employeeRepository.findEmployeeByDesignationQuery(activeState, designationList);
+    }
+
+    public int updateEmployeeName(String name, List<Long> empIdList) {
+        return employeeRepository.updateEmployeeNameByEmpId(name, empIdList);
+    }
 }
