@@ -3,6 +3,7 @@ package com.emmanuelamet.springdatajpa.controller;
 import com.emmanuelamet.springdatajpa.model.Employee;
 import com.emmanuelamet.springdatajpa.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,5 +37,15 @@ public class EmployeeController {
     @GetMapping("/{name}")
     public Employee getEmployeeByName(@PathVariable String name){
         return employeeService.getEmployeeByName(name);
+    }
+
+    @RequestMapping(value = "/pagination/{pageNumber}/{pageSize}", method = RequestMethod.GET)
+    public Page<Employee> employeePagination(@PathVariable Integer pageNumber, @PathVariable Integer pageSize){
+        return employeeService.getEmployeePagination(pageNumber, pageSize, null);
+    }
+
+    @RequestMapping(value = "/pagination/{pageNumber}/{pageSize}/{sortProperty}", method = RequestMethod.GET)
+    public Page<Employee> employeePagination(@PathVariable Integer pageNumber, @PathVariable Integer pageSize, @PathVariable String sortProperty){
+        return employeeService.getEmployeePagination(pageNumber, pageSize, sortProperty);
     }
 }
